@@ -4,8 +4,9 @@ import {useContext } from 'react';
 import {   CartContext } from '../App';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import { Toolbar } from '@mui/material';
+import { Typography } from '@mui/material';
+// import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
@@ -72,8 +73,10 @@ export default function Navbar({cart}) {
                         {!isMobile && (
                             <Grid item xs={8} sm={9}>
                                 <ColorChangeTypography variant="h6" component="p" sx={{ flexGrow: 0, fontFamily: 'Bold', marginLeft: '20px' }}>
-                                Hello {user ? user.email: "Guest"}
+                                Hello Guest
                                 </ColorChangeTypography>
+                                <Typography variant="h6">
+                                </Typography>
                             </Grid>
                         )}
 

@@ -3,7 +3,8 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+import { Typography } from '@mui/material';
+// import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import StarIcon from '@mui/icons-material/Star';
@@ -43,8 +44,9 @@ export default function CheckoutPage({cart, removeFromCart}) {
         const {name, image, price, productType, quantity } = item;
         return (
           <React.Fragment key={item.id}>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
           <CheckoutCard item={item} removeFromCart={removeFromCart} /> 
-    <Card sx={{ maxWidth: 340, height: 'auto'}}>
+    <Card sx={{ maxWidth: 345,  minHeight:  '400px', height: 'auto'}}>
       <CardMedia
         component="img"
         height="194"
@@ -87,13 +89,14 @@ export default function CheckoutPage({cart, removeFromCart}) {
         </IconButton>
       </CardActions>
       </Card>
+      </Grid>
       </React.Fragment>
   );
 })}
     </Grid>
     <Card style={{ width: '100%', marginTop: '20px', minHeight: '200px'}}>
       <Grid container justifyContent="space-between" alignItems="center" style={{padding: '20px'}}>
-        <Grid item xs={8} sm={4}>
+        <Grid item xs={12} sm={8}>
     <Typography variant="h6" style={{ fontWeight: 'bold', marginLeft: '20px', fontSize: '2rem', color: 'CaptionText'}}>
       Total to pay: {accounting.formatMoney(total, "$")}
     </Typography>

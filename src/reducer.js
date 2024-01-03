@@ -4,6 +4,8 @@ import { createContext, useReducer } from 'react';
 export const initialState = {
     basket:[],
     user: null,
+    shippingData: {},
+    paymentMessage: "",
 };
 
 export const actionType = {
@@ -12,6 +14,8 @@ export const actionType = {
     INCREMENT_QUANTITY: "INCREMENT_QUANTITY",
     SET_USER: "SET_USER",
     SIGN_OUT: "SIGN_OUT",
+    SET_SHIPPINGDATA: "SET_SHIPPINGDATA",
+    SET_PAYMENT_MESSAGE: "SET_PAYMENT_MESSAGE",
 };
 
 export const CartContext = createContext();
@@ -59,6 +63,16 @@ export const CartContext = createContext();
                     ...state,
                     user: action.user,
                 };
+            case "SET_SHIPPINGDATA":
+                return {
+                    ...state,
+                    shippingData: action.shippingData,
+                };
+            case "SET_PAYMENT_MESSAGE":
+                return {
+                    ...state,
+                    paymentMessage: action.paymentMessage,
+                };
             case "SIGN_OUT":
                 return {
                     ...state,
@@ -82,6 +96,9 @@ export function CartProvider({children}) {
         </CartContext.Provider>
     )
 }
+
+export const getBasketTotal = (basket) =>
+basket?.reduce((total, item) => total +  item.price * item.quantity, 0);
 
 export default reducer;
 

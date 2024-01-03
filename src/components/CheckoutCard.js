@@ -2,7 +2,8 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import { Typography } from '@mui/material';
+// import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import StarIcon from '@mui/icons-material/Star';
@@ -46,7 +47,7 @@ export default function CheckoutCard({product, quantity, removeFromCart}) {
         <Grid container justifyContent="space-between">
         <Grid item>
         <Typography variant="h6" color="text.secondary" style={{ fontWeight: 'bold'}}>
-           Total: {accounting.formatMoney(price, "$")}
+           Total: {accounting.formatMoney(price * quantity, "$")}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Quantity: {quantity}

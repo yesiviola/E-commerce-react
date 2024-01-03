@@ -9,7 +9,7 @@ import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+import { Typography } from '@mui/material';
 import { red } from '@mui/material/colors';
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import StarIcon from "@mui/icons-material/Star";
@@ -17,6 +17,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import accounting from "accounting";
 import { actionType } from '../reducer';
 import { useStateValue } from '../StateProvider';
+import Grid from '@mui/material/Grid';
 
 
 const ExpandMore = styled((props) => {
@@ -58,6 +59,7 @@ export default function Product({product, addToCart}) {
          price: product.price,
          productType: product.productType,
        description: product.description,
+        quantity: 1,
       },
     });
   }
@@ -78,7 +80,8 @@ export default function Product({product, addToCart}) {
 
   
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Grid item xs={12}>
+    <Card sx={{ maxWidth: 345, minHeight: '400px', height: 'auto'}}>
       <CardHeader
         avatar={
           <Avatar src="/e-commerce-yese.png"
@@ -94,7 +97,6 @@ export default function Product({product, addToCart}) {
         title={name}
         subheader="in Stock"
       />
-      <Card sx={{ maxWidth:345 }}>
       <CardMedia
         component="img"
         height="194"
@@ -133,6 +135,6 @@ export default function Product({product, addToCart}) {
         </CardContent>
       </Collapse>
     </Card>
-    </Card>
+    </Grid>
   );
 }

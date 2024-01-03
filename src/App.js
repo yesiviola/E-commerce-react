@@ -1,5 +1,5 @@
-import React from 'react';
-import {  useReducer, createContext} from 'react';
+import React, {createContext} from 'react';
+import {  useReducer,  useEffect} from 'react';
 import {BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import Product from "./components/Product";
 import Products from "./components/Products";
@@ -11,7 +11,6 @@ import CheckoutCard from "./components/CheckoutCard";
 import products from './product-data';
 import SignIn from './components/Signin';
 import SignUp from './components/Signup';
-import { useEffect } from 'react';
 import { auth } from './firebase';
 import {useStateValue } from "./StateProvider";
 import { reducer as cartReducer } from './reducer';

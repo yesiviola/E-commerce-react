@@ -1,12 +1,10 @@
-import {createContext, useContext, useReducer } from "react";
-
-
-export const StateContext = createContext();
+import { useContext, useReducer} from "react";
+import {CartContext } from './reducer';
 
 
 export const StateProvider = ({ reducer, initialState, children }) => (
-    <StateContext.Provider value={useReducer(reducer, initialState)}>
+    <CartContext.Provider value={useReducer(reducer, initialState)}>
     {children}
-    </StateContext.Provider>
+    </CartContext.Provider>
 );
-export const useStateValue = () => useContext(StateContext)
+export const useStateValue = () => useContext(CartContext)
